@@ -1,0 +1,15 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+Thumbs.db
+*.log
+.env*
+!.env.example
+
+# Local one-shot helper scripts and editor state
+tmp-*.cjs
+*.tsbuildinfo
+.idea/
+.vscode/

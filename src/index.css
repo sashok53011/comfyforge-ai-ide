@@ -1,0 +1,176 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom Scrollbar for IDE panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.8);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.8);
+}
+
+/* --------------------------------------------------------------------------
+ * Light theme (toggled by the Sun/Moon button in the navbar).
+ *
+ * The components are written once against the dark slate palette; this block
+ * re-maps those utilities when <html> is NOT .dark, so no component has to be
+ * duplicated. Specificity (0,2,1) beats Tailwind's single-class utilities.
+ * ------------------------------------------------------------------------ */
+html:not(.dark) {
+  color-scheme: light;
+}
+
+html:not(.dark) body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Surfaces */
+html:not(.dark) .bg-slate-950,
+html:not(.dark) .bg-slate-950\/40,
+html:not(.dark) .bg-slate-950\/60,
+html:not(.dark) .bg-slate-950\/70,
+html:not(.dark) .bg-slate-950\/80,
+html:not(.dark) .bg-slate-950\/90,
+html:not(.dark) .bg-slate-950\/95 {
+  background-color: #f8fafc;
+}
+
+html:not(.dark) .bg-slate-900,
+html:not(.dark) .bg-slate-900\/60,
+html:not(.dark) .bg-slate-900\/80,
+html:not(.dark) .bg-slate-900\/90,
+html:not(.dark) .bg-slate-900\/95 {
+  background-color: #f1f5f9;
+}
+
+html:not(.dark) .bg-slate-800,
+html:not(.dark) .bg-slate-800\/50,
+html:not(.dark) .bg-slate-800\/60,
+html:not(.dark) .bg-slate-800\/80 {
+  background-color: #e2e8f0;
+}
+
+/* Text */
+html:not(.dark) .text-white,
+html:not(.dark) .text-slate-50,
+html:not(.dark) .text-slate-100 {
+  color: #0f172a;
+}
+html:not(.dark) .text-slate-200,
+html:not(.dark) .text-slate-300 {
+  color: #1e293b;
+}
+html:not(.dark) .text-slate-400 {
+  color: #475569;
+}
+html:not(.dark) .text-slate-500 {
+  color: #64748b;
+}
+html:not(.dark) .text-indigo-200,
+html:not(.dark) .text-indigo-300,
+html:not(.dark) .text-indigo-400 {
+  color: #4338ca;
+}
+html:not(.dark) .text-emerald-300,
+html:not(.dark) .text-emerald-400 {
+  color: #047857;
+}
+html:not(.dark) .text-amber-300,
+html:not(.dark) .text-amber-400 {
+  color: #b45309;
+}
+html:not(.dark) .text-red-300,
+html:not(.dark) .text-red-400 {
+  color: #b91c1c;
+}
+html:not(.dark) .text-cyan-200 {
+  color: #155e75;
+}
+
+/* Borders */
+html:not(.dark) .border-slate-700,
+html:not(.dark) .border-slate-700\/50,
+html:not(.dark) .border-slate-700\/60,
+html:not(.dark) .border-slate-800,
+html:not(.dark) .border-slate-800\/40,
+html:not(.dark) .border-slate-800\/60,
+html:not(.dark) .border-slate-800\/80 {
+  border-color: #cbd5e1;
+}
+html:not(.dark) .divide-slate-800\/60 > * + * {
+  border-color: #e2e8f0;
+}
+
+/* Node headers keep their accent but on pastel gradients */
+html:not(.dark) .from-indigo-900\/80 {
+  background-image: linear-gradient(to right, #e0e7ff, #ede9fe);
+}
+html:not(.dark) .from-emerald-900\/80 {
+  background-image: linear-gradient(to right, #d1fae5, #ccfbf1);
+}
+html:not(.dark) .from-amber-900\/80 {
+  background-image: linear-gradient(to right, #fef3c7, #ffedd5);
+}
+
+/* Light scrollbars to match */
+html:not(.dark) ::-webkit-scrollbar-track {
+  background: rgba(226, 232, 240, 0.7);
+}
+html:not(.dark) ::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.9);
+}
+html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.8);
+}
+
+/* --------------------------------------------------------------------------
+ * Phone-sized screens (6" class) and touch input.
+ * ------------------------------------------------------------------------ */
+
+/* Bottom navigation respects the Android gesture bar. */
+.mobile-tabbar {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Tiny labels are readable on a phone without touching the desktop layout. */
+@media (max-width: 640px) {
+  .text-\[10px\] {
+    font-size: 11px;
+  }
+  .text-\[11px\] {
+    font-size: 12px;
+  }
+}
+
+/* Touch targets: finger-sized buttons where the mouse ones are 28–32px. */
+@media (pointer: coarse) {
+  header button,
+  nav button {
+    min-height: 40px;
+    min-width: 40px;
+  }
+}
+
+/* Nodes and the canvas must not scroll/zoom the page while being dragged. */
+.canvas-surface {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+

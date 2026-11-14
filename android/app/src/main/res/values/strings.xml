@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ComfyForge AI IDE</string>
+    <string name="title_activity_main">ComfyForge AI IDE</string>
+    <string name="package_name">online.devhorizon.comfyforge</string>
+    <string name="custom_url_scheme">online.devhorizon.comfyforge</string>
+</resources>

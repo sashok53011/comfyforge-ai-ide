@@ -1,0 +1,6 @@
+{
+  "name": "ComfyForge AI IDE",
+  "description": "A ComfyUI-style visual node IDE: node graph editor with connections, import/export of real ComfyUI workflow JSON (Save and API formats), custom Python/JS node code studio, AI copilot for explaining and reviewing nodes, and an AI node constructor. Works with Gemini or any OpenAI-compatible endpoint configured in Settings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
